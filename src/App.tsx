@@ -1,5 +1,6 @@
 import Hero from './components/Hero'
 import Nav from './components/Nav'
+import Pricing from './components/Pricing'
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Nav brand="Studio" />
       <main className="flex flex-col gap-20 sm:gap-28 md:gap-32">
         <Hero />
+        <Pricing />
       </main>
     </div>
   )
