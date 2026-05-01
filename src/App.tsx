@@ -1,3 +1,4 @@
+import Booking from './components/Booking'
 import Gallery from './components/Gallery'
 import Hero from './components/Hero'
 import Nav from './components/Nav'
@@ -11,6 +12,7 @@ function App() {
         <Hero />
         <Pricing />
         <Gallery />
+        <Booking />
       </main>
     </div>
   )
