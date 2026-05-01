@@ -1,3 +1,4 @@
+import Gallery from './components/Gallery'
 import Hero from './components/Hero'
 import Nav from './components/Nav'
 import Pricing from './components/Pricing'
@@ -9,6 +10,7 @@ function App() {
       <main className="flex flex-col gap-20 sm:gap-28 md:gap-32">
         <Hero />
         <Pricing />
+        <Gallery />
       </main>
     </div>
   )

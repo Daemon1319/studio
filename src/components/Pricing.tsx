@@ -286,6 +286,88 @@ export default function Pricing() {
             </li>
           ))}
         </ul>
+
+        <details className="group rounded-2xl border border-line bg-surface transition-colors hover:border-ink/30 open:border-ink/40 open:shadow-[0_8px_28px_-12px_rgba(17,17,17,0.18)]">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 sm:p-6 [&::-webkit-details-marker]:hidden">
+            <div className="flex flex-col gap-0.5">
+              <h4 className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+                Add-ons
+              </h4>
+              <span className="text-xs text-ink-soft sm:text-sm">
+                Available with any package
+              </span>
+            </div>
+            <div className="flex shrink-0 items-center gap-3">
+              <span className="text-sm font-medium text-ink-soft sm:text-base">
+                From ₱50
+              </span>
+              <span className="flex h-7 w-7 items-center justify-center rounded-full border border-line text-ink-soft transition-colors group-hover:border-ink/40 group-hover:text-ink">
+                <Chevron />
+              </span>
+            </div>
+          </summary>
+
+          <div className="border-t border-line px-5 sm:px-6">
+            <ul className="flex flex-col divide-y divide-line-soft">
+              {addons.map((svc) => (
+                <li
+                  key={svc.name}
+                  className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4"
+                >
+                  <div className="flex min-w-0 flex-col gap-1">
+                    <span className="text-base font-medium text-ink sm:text-[17px]">
+                      {svc.name}
+                    </span>
+                    {svc.description && (
+                      <span className="text-sm text-ink-soft">
+                        {svc.description}
+                      </span>
+                    )}
+                  </div>
+                  <span className="shrink-0 text-base font-semibold tracking-tight text-ink sm:text-lg">
+                    {formatMoney(svc.price)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </details>
+
+        <div className="flex flex-col gap-3">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-soft">
+            Available backdrop colors
+          </span>
+          <ul
+            aria-label="Available backdrop colors"
+            className="flex flex-wrap gap-2.5"
+          >
+            {backdropColors.map((color) => (
+              <li
+                key={color.name}
+                className="flex items-center gap-2 rounded-full border border-line bg-surface py-1.5 pl-1.5 pr-3.5"
+              >
+                <span
+                  aria-hidden="true"
+                  className="h-5 w-5 rounded-full border border-ink/20 ring-1 ring-inset ring-black/5"
+                  style={{ backgroundColor: color.hex }}
+                />
+                <span className="text-sm text-ink">{color.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-3 sm:mt-4">
+          <a
+            href="#book"
+            className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-surface transition-colors hover:bg-ink focus-visible:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:text-base"
+          >
+            Book a session
+          </a>
+          <p className="text-sm text-ink-soft">
+            Have questions? Message us — we reply fast.
+          </p>
+        </div>
       </div>
 
       <div className="mt-12 flex flex-col gap-6 sm:mt-16 sm:gap-8">
@@ -347,66 +429,6 @@ export default function Pricing() {
         </div>
       </div>
 
-      <div className="mt-12 flex flex-col gap-6 sm:mt-16 sm:gap-8">
-        <SubsectionHeading>Add-ons</SubsectionHeading>
-
-        <ul className="flex flex-col divide-y divide-line">
-          {addons.map((svc) => (
-            <li
-              key={svc.name}
-              className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4 first:pt-0 last:pb-0"
-            >
-              <div className="flex min-w-0 flex-col gap-1">
-                <span className="text-base font-medium text-ink sm:text-lg">
-                  {svc.name}
-                </span>
-                {svc.description && (
-                  <span className="text-sm text-ink-soft">
-                    {svc.description}
-                  </span>
-                )}
-              </div>
-              <span className="shrink-0 text-base font-semibold tracking-tight text-ink sm:text-lg">
-                {formatMoney(svc.price)}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-12 flex flex-col gap-4 sm:mt-16">
-        <SubsectionHeading>Backdrop colors</SubsectionHeading>
-        <ul
-          aria-label="Available backdrop colors"
-          className="flex flex-wrap gap-3"
-        >
-          {backdropColors.map((color) => (
-            <li
-              key={color.name}
-              className="flex items-center gap-2 rounded-full border border-line bg-surface py-1.5 pl-1.5 pr-3.5"
-            >
-              <span
-                aria-hidden="true"
-                className="h-6 w-6 rounded-full border border-ink/20 ring-1 ring-inset ring-black/5"
-                style={{ backgroundColor: color.hex }}
-              />
-              <span className="text-sm text-ink">{color.name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-3 sm:mt-16">
-        <a
-          href="#book"
-          className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-surface transition-colors hover:bg-ink focus-visible:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:text-base"
-        >
-          Book a session
-        </a>
-        <p className="text-sm text-ink-soft">
-          Have questions? Message us — we reply fast.
-        </p>
-      </div>
     </section>
   )
 }
